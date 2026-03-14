@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code de la Route Belgique — avec traduction en russe</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7529900678975882"
+     crossorigin="anonymous"></script>
+  <meta name="description" content="Code de la Route Belgique avec traduction en russe. Quiz, panneaux belges, conseils pour l'examen théorique belge.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Code Route BE">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230f172a' stroke='%231a56db' stroke-width='4'/><text x='50' y='38' text-anchor='middle' font-size='22' font-weight='bold' fill='%2360a5fa'>CODE</text><text x='50' y='58' text-anchor='middle' font-size='12' font-weight='bold' fill='white'>de la Route</text><text x='50' y='78' text-anchor='middle' font-size='14' fill='%23FFD700'>BE</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230f172a'/><circle cx='90' cy='75' r='55' fill='none' stroke='%231a56db' stroke-width='6'/><text x='90' y='65' text-anchor='middle' font-size='30' font-weight='bold' fill='%2360a5fa' font-family='sans-serif'>CODE</text><text x='90' y='90' text-anchor='middle' font-size='16' fill='white' font-family='sans-serif'>de la Route</text><rect x='55' y='130' width='70' height='28' rx='14' fill='%23FFD700'/><text x='90' y='150' text-anchor='middle' font-size='16' font-weight='bold' fill='%230f172a' font-family='sans-serif'>BELGE</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #1a56db;
+      --blue-dark: #1e3a5f;
+      --blue-light: #e8f0fe;
+      --red: #dc2626;
+      --green: #16a34a;
+      --orange: #ea580c;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --accent: #FFD700;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background: var(--light);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--dark);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .logo span { color: #60a5fa; }
+    .logo .be-flag { color: var(--accent); font-size: 14px; font-weight: 700; margin-left: 4px; }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 15px;
+    }
+
+    nav a:hover { color: #60a5fa; }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .burger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* ===== LANG TOGGLE ===== */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 25px;
+      padding: 5px 14px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(96,165,250,0.2);
+      border-color: #60a5fa;
+    }
+
+    .lang-toggle.active {
+      background: rgba(220,38,38,0.2);
+      border-color: #f87171;
+    }
+
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* ===== FLOATING TRANSLATE BUTTON ===== */
+    .float-translate {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 25px rgba(26,86,219,0.5);
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .float-translate:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(26,86,219,0.6);
+    }
+
+    .float-translate.active {
+      background: var(--red);
+      box-shadow: 0 6px 25px rgba(220,38,38,0.5);
+    }
+
+    .float-translate.active:hover {
+      box-shadow: 0 10px 35px rgba(220,38,38,0.6);
+    }
+
+    /* ===== TRANSLATION ===== */
+    .ru-text {
+      display: none;
+      color: #6366f1;
+      font-size: 0.85em;
+      font-style: italic;
+      margin-top: 4px;
+      padding-left: 2px;
+      border-left: 3px solid #a5b4fc;
+      padding: 4px 0 4px 10px;
+    }
+
+    .show-ru .ru-text { display: block; }
+
+    .ru-inline {
+      display: none;
+      color: #6366f1;
+      font-size: 0.85em;
+      font-style: italic;
+    }
+
+    .show-ru .ru-inline { display: inline; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a56db 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 120px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,215,0,0.1), transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span { color: #60a5fa; }
+    .hero h1 .accent-be { color: var(--accent); }
+
+    .hero .subtitle-ru {
+      display: none;
+      font-size: 22px;
+      color: #a5b4fc;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .show-ru .hero .subtitle-ru { display: block; }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.85;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats div { text-align: center; }
+
+    .hero-stats strong {
+      display: block;
+      font-size: 36px;
+      color: #60a5fa;
+    }
+
+    .hero-stats .accent-stat strong { color: var(--accent); }
+
+    .hero-stats span {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26,86,219,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.3);
+      margin-left: 15px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #60a5fa;
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 80px 20px; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .section-title p { color: var(--gray); font-size: 18px; }
+
+    .section-title .line {
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ===== THEMES ===== */
+    #themes { background: #fff; }
+
+    .themes-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .theme-card {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 30px 25px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .theme-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .theme-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--blue-light);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 15px;
+    }
+
+    .theme-card h3 { font-size: 16px; color: var(--dark); margin-bottom: 8px; }
+    .theme-card p { font-size: 13px; color: var(--gray); }
+
+    .theme-card .q-count {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--blue-light);
+      color: var(--blue);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ===== QUIZ ===== */
+    #quiz { background: var(--light); }
+
+    .quiz-container {
+      max-width: 750px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--light);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-progress { font-size: 14px; color: var(--gray); font-weight: 600; }
+
+    .quiz-timer {
+      background: var(--blue-light);
+      color: var(--blue);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .quiz-score {
+      background: #f0fdf4;
+      color: var(--green);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .quiz-image {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      border-radius: 12px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      color: #94a3b8;
+      overflow: hidden;
+    }
+
+    .quiz-question {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .quiz-question-ru {
+      display: none;
+      font-size: 16px;
+      color: #6366f1;
+      font-style: italic;
+      margin-bottom: 20px;
+      padding-left: 12px;
+      border-left: 3px solid #a5b4fc;
+      line-height: 1.5;
+    }
+
+    .show-ru .quiz-question-ru { display: block; }
+    .show-ru .quiz-question { margin-bottom: 8px; }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 16px 20px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 15px;
+    }
+
+    .quiz-option:hover { border-color: var(--blue); background: var(--blue-light); }
+    .quiz-option.selected { border-color: var(--blue); background: var(--blue-light); }
+    .quiz-option.correct { border-color: var(--green); background: #f0fdf4; }
+    .quiz-option.wrong { border-color: var(--red); background: #fef2f2; }
+
+    .option-letter {
+      width: 32px;
+      height: 32px;
+      background: #e2e8f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--gray);
+      flex-shrink: 0;
+    }
+
+    .selected .option-letter { background: var(--blue); color: #fff; }
+    .correct .option-letter { background: var(--green); color: #fff; }
+    .wrong .option-letter { background: var(--red); color: #fff; }
+
+    .quiz-explanation {
+      display: none;
+      background: #fffbeb;
+      border-left: 4px solid var(--orange);
+      padding: 15px 20px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #92400e;
+      line-height: 1.7;
+    }
+
+    .quiz-explanation.show { display: block; }
+
+    .quiz-explanation-ru {
+      display: none;
+      background: #eef2ff;
+      border-left: 4px solid #6366f1;
+      padding: 12px 18px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #4338ca;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .show-ru .quiz-explanation-ru.show { display: block; }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-quiz { padding: 12px 30px; border-radius: 10px; font-size: 15px; font-weight: 600; }
+    .btn-secondary { background: #e2e8f0; color: var(--dark); }
+    .btn-secondary:hover { background: #cbd5e1; }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    .quiz-results { display: none; text-align: center; padding: 20px 0; }
+
+    .results-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 42px;
+      font-weight: 900;
+    }
+
+    .results-circle.pass { background: #f0fdf4; color: var(--green); border: 4px solid var(--green); }
+    .results-circle.fail { background: #fef2f2; color: var(--red); border: 4px solid var(--red); }
+    .results-circle span { font-size: 14px; font-weight: 600; }
+    .results-text { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .results-sub { color: var(--gray); margin-bottom: 30px; }
+
+    /* ===== ROAD SIGNS ===== */
+    #signs { background: #fff; }
+
+    .signs-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .sign-card {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .sign-card:hover { transform: translateY(-4px); }
+
+    .sign-visual {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .sign-danger { background: #fff; border: 4px solid var(--red); color: var(--red); }
+    .sign-interdiction { background: #fff; border: 4px solid var(--red); color: var(--dark); }
+    .sign-obligation { background: var(--blue); }
+    .sign-indication { background: var(--blue); border-radius: 12px; }
+    .sign-priority { background: #fbbf24; color: var(--dark); border-radius: 0; transform: rotate(45deg); }
+    .sign-priority span { transform: rotate(-45deg); display: block; }
+    .sign-tram { background: var(--accent); color: var(--dark); border: 4px solid var(--dark); }
+
+    .sign-card h4 { font-size: 14px; color: var(--dark); margin-bottom: 5px; }
+    .sign-card p { font-size: 12px; color: var(--gray); }
+
+    /* ===== TIPS ===== */
+    #tips { background: var(--light); }
+
+    .tips-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .tip-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+
+    .tip-card h3 {
+      font-size: 18px;
+      color: var(--dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tip-card p { font-size: 14px; color: var(--gray); line-height: 1.8; }
+
+    .tip-number {
+      width: 30px;
+      height: 30px;
+      background: var(--accent);
+      color: var(--dark);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    footer p { font-size: 14px; }
+    footer a { color: #60a5fa; text-decoration: none; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .section-title h2 { font-size: 26px; }
+      .quiz-container { padding: 25px 20px; }
+      .quiz-question { font-size: 17px; }
+      .hero-stats { gap: 20px; }
+      .hero-stats strong { font-size: 28px; }
+
+      nav ul { display: none; }
+      nav ul.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        padding: 20px;
+        gap: 15px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      nav ul.active .lang-toggle { align-self: flex-start; }
+      .burger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <div class="logo-icon">&#9679;</div>
+        Code <span>de la Route</span><span class="be-flag">BE</span>
+      </a>
+      <ul id="navMenu">
+        <li><a href="#themes">Th&egrave;mes</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#signs">Panneaux</a></li>
+        <li><a href="#tips">Conseils</a></li>
+        <li>
+          <button class="lang-toggle" id="langToggle" onclick="toggleLang()">
+            <span class="lang-flag" style="font-size:13px;font-weight:800;color:#60a5fa;">RU</span>
+            <span id="langLabel">Русский</span>
+          </button>
+        </li>
+      </ul>
+      <button class="burger" onclick="document.getElementById('navMenu').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div style="position:relative;z-index:1;">
+      <h1>R&eacute;ussis ton <span>Code de la Route</span> en <span class="accent-be">Belgique</span> du premier coup</h1>
+      <div class="subtitle-ru">С русским переводом вопросов и разъяснений</div>
+      <p>Entra&icirc;ne-toi avec des questions adapt&eacute;es &agrave; l'examen th&eacute;orique belge. Quiz interactifs, explications d&eacute;taill&eacute;es et traduction en russe.</p>
+      <a href="pdd-test.html?cat=all" class="btn">Commencer le quiz</a>
+      <a href="#themes" class="btn btn-outline">Voir les th&egrave;mes</a>
+      <div class="hero-stats">
+        <div><strong>500+</strong><span>Questions</span></div>
+        <div><strong>8</strong><span>Th&egrave;mes</span></div>
+        <div><strong>95%</strong><span>Taux de r&eacute;ussite</span></div>
+        <div class="accent-stat"><strong>RU</strong><span>Traduction</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section id="themes">
+    <div class="section-title">
+      <h2>Th&egrave;mes de l'examen belge</h2>
+      <div class="ru-text">Темы бельгийского экзамена</div>
+      <p>Ma&icirc;trisez chaque cat&eacute;gorie pour r&eacute;ussir l'examen th&eacute;orique</p>
+      <div class="line"></div>
+    </div>
+    <div class="themes-grid">
+      <a class="theme-card" href="pdd-test.html?cat=speed">
+        <div class="theme-icon">&#128675;</div>
+        <h3>Signalisation <span class="ru-inline">/ Знаки</span></h3>
+        <p>Panneaux, marquages au sol et feux de signalisation belges</p>
+        <div class="ru-text">Знаки, дорожная разметка и светофоры (Бельгия)</div>
+        <span class="q-count">80 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=priority">
+        <div class="theme-icon">&#128670;</div>
+        <h3>Circulation & Trams <span class="ru-inline">/ Движение и трамваи</span></h3>
+        <p>R&egrave;gles de priorit&eacute;, trams, d&eacute;passements et ronds-points</p>
+        <div class="ru-text">Правила приоритета, трамваи, обгон и круговое движение</div>
+        <span class="q-count">90 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=visibility">
+        <div class="theme-icon">&#127777;</div>
+        <h3>Conduite <span class="ru-inline">/ Вождение</span></h3>
+        <p>Vitesse, distances de s&eacute;curit&eacute; et conditions m&eacute;t&eacute;o</p>
+        <div class="ru-text">Скорость, дистанция безопасности и погодные условия</div>
+        <span class="q-count">70 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=tech">
+        <div class="theme-icon">&#9888;</div>
+        <h3>S&eacute;curit&eacute; <span class="ru-inline">/ Безопасность</span></h3>
+        <p>Ceinture, airbags, &eacute;quipements et premiers secours</p>
+        <div class="ru-text">Ремень, подушки безопасности, оборудование и первая помощь</div>
+        <span class="q-count">60 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=eco">
+        <div class="theme-icon">&#127807;</div>
+        <h3>&Eacute;co-conduite <span class="ru-inline">/ Эко-вождение</span></h3>
+        <p>Conduite &eacute;conomique et respect de l'environnement</p>
+        <div class="ru-text">Экономичное вождение и охрана окружающей среды</div>
+        <span class="q-count">40 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=tech">
+        <div class="theme-icon">&#128260;</div>
+        <h3>M&eacute;canique <span class="ru-inline">/ Механика</span></h3>
+        <p>Entretien du v&eacute;hicule, pneumatiques et niveaux</p>
+        <div class="ru-text">Обслуживание автомобиля, шины и уровни жидкостей</div>
+        <span class="q-count">50 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=health">
+        <div class="theme-icon">&#127870;</div>
+        <h3>Alcool & Drogues <span class="ru-inline">/ Алкоголь</span></h3>
+        <p>Taux l&eacute;gaux belges, effets sur la conduite et sanctions</p>
+        <div class="ru-text">Бельгийские нормы алкоголя, влияние на вождение и штрафы</div>
+        <span class="q-count">50 questions</span>
+      </a>
+      <a class="theme-card" href="pdd-test.html?cat=firstaid">
+        <div class="theme-icon">&#128100;</div>
+        <h3>Usagers vuln&eacute;rables <span class="ru-inline">/ Уязвимые</span></h3>
+        <p>Pi&eacute;tons, cyclistes, enfants et personnes &acirc;g&eacute;es</p>
+        <div class="ru-text">Пешеходы, велосипедисты, дети и пожилые люди</div>
+        <span class="q-count">60 questions</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <div class="section-title">
+      <h2>Quiz d'entra&icirc;nement</h2>
+      <div class="ru-text">Тренировочный тест</div>
+      <p>Testez vos connaissances avec 10 questions sur les r&egrave;gles belges</p>
+      <div class="line"></div>
+    </div>
+    <div class="quiz-container">
+      <div id="quizContent">
+        <div class="quiz-header">
+          <span class="quiz-progress" id="qProgress">Question 1/10</span>
+          <span class="quiz-score" id="qScore">Score: 0/0</span>
+          <span class="quiz-timer" id="qTimer">00:00</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+        </div>
+        <div class="quiz-image" id="qImage"></div>
+        <div class="quiz-question" id="qText"></div>
+        <div class="quiz-question-ru" id="qTextRu"></div>
+        <div class="quiz-options" id="qOptions"></div>
+        <div class="quiz-explanation" id="qExplanation"></div>
+        <div class="quiz-explanation-ru" id="qExplanationRu"></div>
+        <div class="quiz-nav">
+          <button class="btn btn-secondary btn-quiz" id="btnPrev" onclick="prevQuestion()">Pr&eacute;c&eacute;dent</button>
+          <button class="btn btn-quiz" id="btnNext" onclick="nextQuestion()">Valider</button>
+        </div>
+      </div>
+      <div class="quiz-results" id="quizResults">
+        <div class="results-circle" id="resultsCircle">
+          <span id="resultsScore"></span>
+          <span>/10</span>
+        </div>
+        <div class="results-text" id="resultsText"></div>
+        <p class="results-sub" id="resultsSub"></p>
+        <button class="btn" onclick="restartQuiz()">Recommencer le quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROAD SIGNS -->
+  <section id="signs">
+    <div class="section-title">
+      <h2>Les panneaux essentiels en Belgique</h2>
+      <div class="ru-text">Основные дорожные знаки Бельгии</div>
+      <p>Apprenez &agrave; reconna&icirc;tre les panneaux sp&eacute;cifiques belges</p>
+      <div class="line"></div>
+    </div>
+    <div class="signs-grid">
+      <div class="sign-card">
+        <div class="sign-visual sign-danger">!</div>
+        <h4>Danger <span class="ru-inline">/ Опасность</span></h4>
+        <p>Triangle &agrave; bordure rouge — signale un danger &agrave; proximit&eacute;</p>
+        <div class="ru-text">Треугольник с красной каймой — предупреждает об опасности</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual sign-tram" style="border-radius:0;">&#128670;</div>
+        <h4>Priorit&eacute; tram <span class="ru-inline">/ Приоритет трамвая</span></h4>
+        <p>Le tram a toujours la priorit&eacute; en Belgique, sauf signal contraire</p>
+        <div class="ru-text">Трамвай всегда имеет приоритет в Бельгии, кроме случаев со знаками</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual sign-interdiction" style="font-size:18px;font-weight:700;">70</div>
+        <h4>Vitesse r&eacute;gionale <span class="ru-inline">/ Региональная скорость</span></h4>
+        <p>Hors agglom&eacute;ration : 70 km/h en Flandre, 90 km/h en Wallonie</p>
+        <div class="ru-text">За городом: 70 км/ч во Фландрии, 90 км/ч в Валлонии</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual sign-obligation">&#10140;</div>
+        <h4>Obligation <span class="ru-inline">/ Обязательный</span></h4>
+        <p>Cercle bleu — direction ou action obligatoire</p>
+        <div class="ru-text">Синий круг — обязательное направление или действие</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual sign-indication" style="font-size:22px;">&#128260;</div>
+        <h4>Rond-point <span class="ru-inline">/ Круговое движение</span></h4>
+        <p>En Belgique, ceux dans le rond-point ont priorit&eacute; sauf panneau B1</p>
+        <div class="ru-text">В Бельгии приоритет у тех, кто на кольце, кроме знака B1</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual" style="background:#dc2626;font-size:20px;">STOP</div>
+        <h4>Stop <span class="ru-inline">/ Стоп</span></h4>
+        <p>Arr&ecirc;t obligatoire — marquer un arr&ecirc;t complet</p>
+        <div class="ru-text">Обязательная остановка — полная остановка</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual sign-priority"><span>!</span></div>
+        <h4>Priorit&eacute; <span class="ru-inline">/ Приоритет</span></h4>
+        <p>Losange jaune — route prioritaire</p>
+        <div class="ru-text">Жёлтый ромб — главная дорога</div>
+      </div>
+      <div class="sign-card">
+        <div class="sign-visual sign-danger" style="border-radius:0;border:4px solid var(--red);clip-path:polygon(50% 0%,0% 100%,100% 100%);">&#9888;</div>
+        <h4>C&eacute;dez <span class="ru-inline">/ Уступите</span></h4>
+        <p>Triangle invers&eacute; — laisser passer les autres usagers</p>
+        <div class="ru-text">Перевёрнутый треугольник — уступите дорогу</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips">
+    <div class="section-title">
+      <h2>Conseils pour r&eacute;ussir en Belgique</h2>
+      <div class="ru-text">Советы для успешной сдачи в Бельгии</div>
+      <p>Nos meilleures astuces pour l'examen th&eacute;orique belge</p>
+      <div class="line"></div>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h3><span class="tip-number">1</span> Format de l'examen belge</h3>
+        <p>L'examen comporte 50 questions. Il faut obtenir au moins 41 bonnes r&eacute;ponses pour r&eacute;ussir. Vous avez 15 secondes par question. Les questions sur les fautes graves comptent double.</p>
+        <div class="ru-text">Экзамен состоит из 50 вопросов. Для сдачи нужно минимум 41 правильный ответ. На каждый вопрос — 15 секунд. Вопросы о серьёзных нарушениях считаются вдвое.</div>
+      </div>
+      <div class="tip-card">
+        <h3><span class="tip-number">2</span> Priorit&eacute; &agrave; droite</h3>
+        <p>En Belgique, la r&egrave;gle de priorit&eacute; &agrave; droite est tr&egrave;s strictement appliqu&eacute;e. En l'absence de signalisation, c&eacute;dez toujours le passage aux v&eacute;hicules venant de votre droite.</p>
+        <div class="ru-text">В Бельгии правило помехи справа строго соблюдается. При отсутствии знаков всегда уступайте транспорту справа.</div>
+      </div>
+      <div class="tip-card">
+        <h3><span class="tip-number">3</span> Tramways — toujours prioritaires</h3>
+        <p>Les trams ont presque toujours la priorit&eacute; en Belgique. Soyez tr&egrave;s attentif aux voies de tram et ne les bloquez jamais. C'est un sujet fr&eacute;quent &agrave; l'examen.</p>
+        <div class="ru-text">Трамваи почти всегда имеют приоритет в Бельгии. Будьте внимательны к трамвайным путям и никогда их не блокируйте. Это частая тема на экзамене.</div>
+      </div>
+      <div class="tip-card">
+        <h3><span class="tip-number">4</span> Vitesses selon la r&eacute;gion</h3>
+        <p>Ville : 50 km/h partout. Hors agglom&eacute;ration : 70 km/h en Flandre, 90 km/h en Wallonie et Bruxelles. Autoroute : 120 km/h. Par temps de pluie : adaptez votre vitesse.</p>
+        <div class="ru-text">Город: 50 км/ч везде. За городом: 70 км/ч во Фландрии, 90 км/ч в Валлонии и Брюсселе. Автобан: 120 км/ч. В дождь: снизьте скорость.</div>
+      </div>
+      <div class="tip-card">
+        <h3><span class="tip-number">5</span> Questions &agrave; points doubles</h3>
+        <p>Les questions portant sur des infractions graves (alcool, exc&egrave;s de vitesse, priorit&eacute;) comptent double. Une erreur sur ces questions co&ucirc;te 2 points au lieu d'un seul.</p>
+        <div class="ru-text">Вопросы о серьёзных нарушениях (алкоголь, превышение скорости, приоритет) считаются вдвое. Ошибка в таком вопросе стоит 2 балла вместо одного.</div>
+      </div>
+      <div class="tip-card">
+        <h3><span class="tip-number">6</span> Le jour de l'examen</h3>
+        <p>Dormez bien la veille. Arrivez en avance au centre d'examen. Vous avez 15 secondes par question — lisez vite mais attentivement. 41/50 minimum pour r&eacute;ussir.</p>
+        <div class="ru-text">Выспитесь накануне. Приходите заранее в экзаменационный центр. На каждый вопрос 15 секунд — читайте быстро, но внимательно. Минимум 41/50 для сдачи.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Code de la Route Belgique avec traduction en russe — Entra&icirc;nement gratuit</p>
+    <p style="margin-top:10px; font-size:12px;">ПДД Бельгии с русским переводом | Non affili&eacute; &agrave; l'examen officiel</p>
+  </footer>
+
+  <!-- FLOATING TRANSLATE BUTTON -->
+  <button class="float-translate" id="floatLang" onclick="toggleLang()">
+    <span style="font-size:18px;">&#127760;</span>
+    <span id="floatLabel">Перевод RU</span>
+  </button>
+
+  <script>
+    // ===== LANGUAGE TOGGLE =====
+    let showRussian = false;
+
+    function toggleLang() {
+      showRussian = !showRussian;
+      document.body.classList.toggle('show-ru', showRussian);
+      const toggle = document.getElementById('langToggle');
+      const label = document.getElementById('langLabel');
+      const floatBtn = document.getElementById('floatLang');
+      const floatLabel = document.getElementById('floatLabel');
+      if (showRussian) {
+        toggle.classList.add('active');
+        label.textContent = 'Masquer RU';
+        floatBtn.classList.add('active');
+        floatLabel.textContent = 'Masquer RU';
+      } else {
+        toggle.classList.remove('active');
+        label.textContent = 'Русский';
+        floatBtn.classList.remove('active');
+        floatLabel.textContent = 'Перевод RU';
+      }
+      renderQuestion();
+    }
+
+    // ===== QUIZ DATA (Belgian rules) =====
+    const questions = [
+      {
+        image: "&#128675;",
+        question: "En agglomération en Belgique, quelle est la vitesse maximale autorisée par défaut ?",
+        questionRu: "В населённом пункте в Бельгии, какова максимальная разрешённая скорость по умолчанию?",
+        options: ["30 km/h", "50 km/h", "70 km/h", "90 km/h"],
+        correct: 1,
+        explanation: "En Belgique, la vitesse en agglomération est limitée à 50 km/h par défaut, comme dans la plupart des pays européens.",
+        explanationRu: "В Бельгии скорость в населённом пункте ограничена 50 км/ч по умолчанию, как и в большинстве европейских стран."
+      },
+      {
+        image: "&#128670;",
+        question: "En Belgique, qui a la priorité entre un tram et une voiture à une intersection sans signalisation ?",
+        questionRu: "В Бельгии, кто имеет приоритет между трамваем и автомобилем на перекрёстке без знаков?",
+        options: ["La voiture", "Le tram", "Celui qui arrive en premier", "La priorité à droite s'applique"],
+        optionsRu: ["Автомобиль", "Трамвай", "Кто первый приехал", "Действует правило помехи справа"],
+        correct: 1,
+        explanation: "En Belgique, le tram a presque toujours la priorité sur les autres véhicules, sauf signalisation contraire explicite.",
+        explanationRu: "В Бельгии трамвай почти всегда имеет приоритет перед другими транспортными средствами, кроме случаев с явной сигнализацией."
+      },
+      {
+        image: "&#128663;",
+        question: "Quelle est la vitesse maximale hors agglomération en Flandre ?",
+        questionRu: "Какова максимальная скорость за городом во Фландрии?",
+        options: ["50 km/h", "70 km/h", "90 km/h", "120 km/h"],
+        correct: 1,
+        explanation: "En Flandre, la vitesse hors agglomération est de 70 km/h par défaut depuis 2017. En Wallonie et à Bruxelles, c'est 90 km/h.",
+        explanationRu: "Во Фландрии скорость за городом — 70 км/ч по умолчанию с 2017 года. В Валлонии и Брюсселе — 90 км/ч."
+      },
+      {
+        image: "&#9888;",
+        question: "Combien de questions comporte l'examen théorique belge ?",
+        questionRu: "Сколько вопросов содержит бельгийский теоретический экзамен?",
+        options: ["40 questions", "45 questions", "50 questions", "60 questions"],
+        optionsRu: ["40 вопросов", "45 вопросов", "50 вопросов", "60 вопросов"],
+        correct: 2,
+        explanation: "L'examen théorique belge comporte 50 questions. Il faut obtenir au moins 41 bonnes réponses pour réussir, et les fautes graves comptent double.",
+        explanationRu: "Бельгийский теоретический экзамен состоит из 50 вопросов. Нужно минимум 41 правильный ответ, а серьёзные ошибки считаются вдвое."
+      },
+      {
+        image: "&#127870;",
+        question: "Quel est le taux d'alcoolémie maximal autorisé en Belgique pour un conducteur expérimenté ?",
+        questionRu: "Какой максимальный уровень алкоголя разрешён в Бельгии для опытного водителя?",
+        options: ["0,2 g/L de sang", "0,5 g/L de sang", "0,8 g/L de sang", "0,0 g/L de sang"],
+        correct: 1,
+        explanation: "En Belgique, le taux maximal est de 0,5 g/L de sang pour les conducteurs expérimentés. Pour les nouveaux conducteurs (2 premières années), c'est 0,2 g/L.",
+        explanationRu: "В Бельгии максимальный уровень — 0,5 г/л крови для опытных водителей. Для начинающих (первые 2 года) — 0,2 г/л."
+      },
+      {
+        image: "&#128260;",
+        question: "En Belgique, dans un rond-point avec panneau B1 (triangle inversé), qui a la priorité ?",
+        questionRu: "В Бельгии на круговом движении со знаком B1 (перевёрнутый треугольник), кто имеет приоритет?",
+        options: [
+          "Ceux qui entrent dans le rond-point",
+          "Ceux qui sont déjà dans le rond-point",
+          "La priorité à droite s'applique",
+          "Le véhicule le plus gros"
+        ],
+        optionsRu: [
+          "Въезжающие на кольцо",
+          "Те, кто уже на кольце",
+          "Действует правило помехи справа",
+          "Более крупное транспортное средство"
+        ],
+        correct: 1,
+        explanation: "En présence du panneau B1 à l'entrée du rond-point, les véhicules déjà engagés dans le rond-point ont la priorité. Sans ce panneau, la priorité à droite s'applique.",
+        explanationRu: "При наличии знака B1 на въезде на кольцо, приоритет имеют транспортные средства уже на кольце. Без этого знака действует правило помехи справа."
+      },
+      {
+        image: "&#128100;",
+        question: "À quelle distance minimale doit-on dépasser un cycliste en Belgique hors agglomération ?",
+        questionRu: "На каком минимальном расстоянии нужно обгонять велосипедиста за городом в Бельгии?",
+        options: ["0,50 m", "1 m", "1,50 m", "2 m"],
+        correct: 2,
+        explanation: "En Belgique, hors agglomération, la distance latérale minimale pour dépasser un cycliste est de 1,50 m. En agglomération, c'est 1 m minimum.",
+        explanationRu: "В Бельгии за городом минимальный боковой интервал при обгоне велосипедиста — 1,50 м. В городе — минимум 1 м."
+      },
+      {
+        image: "&#127777;",
+        question: "Quelle est la vitesse maximale sur autoroute en Belgique ?",
+        questionRu: "Какова максимальная скорость на автобане в Бельгии?",
+        options: ["110 km/h", "120 km/h", "130 km/h", "Pas de limite"],
+        correct: 1,
+        explanation: "En Belgique, la vitesse maximale sur autoroute est de 120 km/h, contrairement à la France (130 km/h) ou l'Allemagne (pas de limite sur certains tronçons).",
+        explanationRu: "В Бельгии максимальная скорость на автобане — 120 км/ч, в отличие от Франции (130 км/ч) или Германии (без ограничений на некоторых участках)."
+      },
+      {
+        image: "&#127807;",
+        question: "Quelle pratique relève de l'éco-conduite ?",
+        questionRu: "Какая практика относится к эко-вождению?",
+        options: [
+          "Rouler en sous-régime",
+          "Anticiper le trafic et freiner doucement",
+          "Accélérer fort puis freiner brusquement",
+          "Rouler toujours au maximum autorisé"
+        ],
+        optionsRu: [
+          "Ехать на пониженных оборотах",
+          "Предвидеть движение и тормозить плавно",
+          "Резко ускоряться и резко тормозить",
+          "Всегда ехать на максимальной скорости"
+        ],
+        correct: 1,
+        explanation: "L'éco-conduite consiste à anticiper le trafic, maintenir une vitesse stable et utiliser le frein moteur. Cela réduit la consommation de 15 à 25%.",
+        explanationRu: "Эко-вождение — это предвидение трафика, поддержание стабильной скорости и использование торможения двигателем. Это снижает расход на 15–25%."
+      },
+      {
+        image: "&#128675;",
+        question: "En Belgique, que devez-vous faire à un feu orange fixe ?",
+        questionRu: "В Бельгии, что нужно делать при постоянном оранжевом сигнале светофора?",
+        options: [
+          "Accélérer pour passer",
+          "S'arrêter sauf si l'arrêt brusque est dangereux",
+          "Continuer sans ralentir",
+          "Tourner à droite uniquement"
+        ],
+        optionsRu: [
+          "Ускориться и проехать",
+          "Остановиться, если остановка не опасна",
+          "Продолжить без замедления",
+          "Повернуть только направо"
+        ],
+        correct: 1,
+        explanation: "Au feu orange fixe en Belgique, vous devez vous arrêter, sauf si un arrêt brusque mettrait en danger les autres usagers. C'est une obligation légale.",
+        explanationRu: "На постоянном оранжевом сигнале в Бельгии нужно остановиться, если резкая остановка не создаст опасности для других участников движения."
+      }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    let answered = new Array(questions.length).fill(null);
+    let timerInterval;
+    let seconds = 0;
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        seconds++;
+        const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+        const s = String(seconds % 60).padStart(2, '0');
+        document.getElementById('qTimer').textContent = m + ':' + s;
+      }, 1000);
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQ];
+      document.getElementById('qProgress').textContent = `Question ${currentQ + 1}/${questions.length}`;
+      document.getElementById('progressFill').style.width = ((currentQ + 1) / questions.length * 100) + '%';
+      document.getElementById('qImage').innerHTML = q.image;
+      document.getElementById('qText').textContent = q.question;
+      document.getElementById('qTextRu').textContent = q.questionRu;
+
+      const answeredCount = answered.filter(a => a !== null).length;
+      document.getElementById('qScore').textContent = `Score: ${score}/${answeredCount}`;
+
+      const optionsEl = document.getElementById('qOptions');
+      optionsEl.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      q.options.forEach((opt, i) => {
+        const div = document.createElement('div');
+        div.className = 'quiz-option';
+        if (answered[currentQ] !== null) {
+          if (i === q.correct) div.className += ' correct';
+          else if (i === answered[currentQ] && i !== q.correct) div.className += ' wrong';
+        }
+
+        let optText = opt;
+        if (showRussian && q.optionsRu && q.optionsRu[i]) {
+          optText = opt + ' <span class="ru-inline" style="display:inline;margin-left:6px;">(' + q.optionsRu[i] + ')</span>';
+        }
+
+        div.innerHTML = `<span class="option-letter">${letters[i]}</span><span>${optText}</span>`;
+        if (answered[currentQ] === null) {
+          div.onclick = () => selectOption(i);
+        }
+        optionsEl.appendChild(div);
+      });
+
+      const explanation = document.getElementById('qExplanation');
+      const explanationRu = document.getElementById('qExplanationRu');
+      if (answered[currentQ] !== null) {
+        explanation.textContent = q.explanation;
+        explanation.classList.add('show');
+        explanationRu.textContent = q.explanationRu;
+        explanationRu.classList.add('show');
+        document.getElementById('btnNext').textContent =
+          currentQ < questions.length - 1 ? 'Suivant' : 'Voir les résultats';
+      } else {
+        explanation.classList.remove('show');
+        explanationRu.classList.remove('show');
+        document.getElementById('btnNext').textContent = 'Valider';
+      }
+
+      document.getElementById('btnPrev').style.visibility = currentQ > 0 ? 'visible' : 'hidden';
+    }
+
+    function selectOption(index) {
+      document.querySelectorAll('.quiz-option').forEach((el, i) => {
+        el.classList.remove('selected');
+        if (i === index) el.classList.add('selected');
+      });
+      document.getElementById('btnNext').dataset.selected = index;
+    }
+
+    function nextQuestion() {
+      if (answered[currentQ] === null) {
+        const selected = document.getElementById('btnNext').dataset.selected;
+        if (selected === undefined || selected === '') return;
+
+        const sel = parseInt(selected);
+        answered[currentQ] = sel;
+        if (sel === questions[currentQ].correct) score++;
+        delete document.getElementById('btnNext').dataset.selected;
+        renderQuestion();
+        return;
+      }
+
+      if (currentQ < questions.length - 1) {
+        currentQ++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQ > 0) {
+        currentQ--;
+        renderQuestion();
+      }
+    }
+
+    function showResults() {
+      clearInterval(timerInterval);
+      document.getElementById('quizContent').style.display = 'none';
+      const results = document.getElementById('quizResults');
+      results.style.display = 'block';
+
+      const circle = document.getElementById('resultsCircle');
+      document.getElementById('resultsScore').textContent = score;
+      circle.querySelector('span:last-child').textContent = '/10';
+
+      if (score >= 9) {
+        circle.className = 'results-circle pass';
+        document.getElementById('resultsText').textContent = showRussian ? 'Отлично! Вы готовы!' : 'Excellent ! Vous \u00eates pr\u00eat(e) !';
+        document.getElementById('resultsSub').textContent = showRussian ? 'Продолжайте в том же духе, экзамен будет лёгким.' : 'Continuez comme \u00e7a, l\'examen sera une formalit\u00e9.';
+      } else if (score >= 7) {
+        circle.className = 'results-circle pass';
+        document.getElementById('resultsText').textContent = showRussian ? 'Хорошо!' : 'Bien jou\u00e9 !';
+        document.getElementById('resultsSub').textContent = showRussian ? 'Ещё немного повторения и будет отлично.' : 'Encore un peu de r\u00e9vision et vous serez au top.';
+      } else if (score >= 5) {
+        circle.className = 'results-circle fail';
+        document.getElementById('resultsText').textContent = showRussian ? 'Можно лучше' : 'Peut mieux faire';
+        document.getElementById('resultsSub').textContent = showRussian ? 'Повторите темы, где были ошибки.' : 'R\u00e9visez les th\u00e8mes o\u00f9 vous avez fait des erreurs.';
+      } else {
+        circle.className = 'results-circle fail';
+        document.getElementById('resultsText').textContent = showRussian ? 'Нужно ещё учиться' : 'Il faut encore r\u00e9viser';
+        document.getElementById('resultsSub').textContent = showRussian ? 'Пройдите тематические уроки перед повторной попыткой.' : 'Reprenez les cours th\u00e9matiques avant de retenter le quiz.';
+      }
+    }
+
+    function restartQuiz() {
+      currentQ = 0;
+      score = 0;
+      answered = new Array(questions.length).fill(null);
+      seconds = 0;
+      document.getElementById('quizContent').style.display = 'block';
+      document.getElementById('quizResults').style.display = 'none';
+      startTimer();
+      renderQuestion();
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('navMenu').classList.remove('active');
+        }
+      });
+    });
+
+    // Init
+    startTimer();
+    renderQuestion();
+  </script>
+
+</body>
+</html>
