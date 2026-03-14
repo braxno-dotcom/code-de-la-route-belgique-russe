@@ -318,8 +318,7 @@
         <h2 id="question">Загрузка...</h2>
         <div id="options"></div>
         <div id="hint-text"></div>
-        <button id="hint-btn" class="btn">Перевод (RU)</button>
-        <div style="display:flex;gap:10px;margin-top:10px;">
+        <div style="display:flex;gap:10px;margin-top:14px;">
             <button id="prev-btn" class="btn" style="flex:1;background:#6b7280;">&#8592; Назад</button>
             <button id="next-btn" class="btn" style="flex:1;">Дальше &#8594;</button>
         </div>
@@ -1615,9 +1614,12 @@ function showQuestion() {
     const item = examQuestions[currentQ];
     document.getElementById("q-num").textContent = currentQ + 1;
     document.getElementById("question").textContent = item.q;
+    const hint = document.getElementById("hint-text");
+    hint.textContent = item.q_ru;
+    hint.style.display = "block";
     document.getElementById("options").innerHTML = "";
-    document.getElementById("hint-text").style.display = "none";
     document.getElementById("next-btn").style.display = "none";
+    document.getElementById("prev-btn").style.display = currentQ > 0 ? "block" : "none";
     updateProgress();
 
     const badge = document.getElementById("category-badge");
@@ -1701,12 +1703,6 @@ function endExam() {
 }
 
 // --- Events ---
-document.getElementById("hint-btn").onclick = () => {
-    const hint = document.getElementById("hint-text");
-    hint.textContent = examQuestions[currentQ].q_ru;
-    hint.style.display = "block";
-};
-
 document.getElementById("next-btn").onclick = () => {
     currentQ++;
     if (currentQ < examQuestions.length) {
