@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://braxno-dotcom.github.io/code-de-la-route-belgique-russe/sitemap.xml
