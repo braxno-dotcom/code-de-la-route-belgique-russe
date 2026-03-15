@@ -713,6 +713,76 @@
       nav ul.active .lang-toggle { align-self: flex-start; }
       .burger { display: flex; }
     }
+
+    /* ===== QUIZ LANGUAGE BUTTONS ===== */
+    .hero-quiz-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .btn-nl {
+      background: #f59e0b;
+      color: #fff;
+    }
+
+    .btn-nl:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245,158,11,0.4);
+    }
+
+    .hero-region-note {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .hero-region-note .ru-text {
+      border-left: none;
+      padding-left: 0;
+      text-align: center;
+      color: #a5b4fc;
+    }
+
+    .quiz-lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 25px;
+    }
+
+    .lang-btn {
+      padding: 10px 28px;
+      border: 2px solid var(--blue);
+      background: transparent;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lang-btn:first-child {
+      border-radius: 25px 0 0 25px;
+    }
+
+    .lang-btn:last-child {
+      border-radius: 0 25px 25px 0;
+      border-left: none;
+    }
+
+    .lang-btn.active {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .lang-btn:hover:not(.active) {
+      background: var(--blue-light);
+    }
   </style>
 </head>
 <body>
@@ -748,7 +818,14 @@
       <h1>R&eacute;ussis ton <span>Code de la Route</span> en <span class="accent-be">Belgique</span> du premier coup</h1>
       <div class="subtitle-ru">С русским переводом вопросов и разъяснений</div>
       <p>Entra&icirc;ne-toi avec des questions adapt&eacute;es &agrave; l'examen th&eacute;orique belge. Quiz interactifs, explications d&eacute;taill&eacute;es et traduction en russe.</p>
-      <a href="pdd-test.html?cat=all" class="btn">Commencer le quiz</a>
+      <div class="hero-quiz-buttons">
+        <a href="pdd-test.html?cat=all" class="btn">Commencer le quiz (FR)</a>
+        <a href="pdd-test-nl.html?cat=all" class="btn btn-nl">Start de test (NL)</a>
+      </div>
+      <div class="hero-region-note">
+        Wallonie &amp; Bruxelles &rarr; FR &nbsp;|&nbsp; Vlaanderen &rarr; NL
+        <div class="ru-text">Валлония и Брюссель &rarr; FR &nbsp;|&nbsp; Фландрия &rarr; NL</div>
+      </div>
       <a href="#themes" class="btn btn-outline">Voir les th&egrave;mes</a>
       <div class="hero-stats">
         <div><strong>1 000+</strong><span>Questions</span></div>
@@ -766,6 +843,10 @@
       <div class="ru-text">Темы бельгийского экзамена</div>
       <p>Ma&icirc;trisez chaque cat&eacute;gorie pour r&eacute;ussir l'examen th&eacute;orique</p>
       <div class="line"></div>
+    </div>
+    <div class="quiz-lang-toggle">
+      <button class="lang-btn active" onclick="setQuizLang('fr')">Fran&ccedil;ais</button>
+      <button class="lang-btn" onclick="setQuizLang('nl')">Nederlands</button>
     </div>
     <div class="themes-grid">
       <a class="theme-card" href="pdd-test.html?cat=speed">
@@ -1292,6 +1373,26 @@
         }
       });
     });
+
+    // ===== QUIZ LANGUAGE TOGGLE =====
+    function setQuizLang(lang) {
+      var btns = document.querySelectorAll('.lang-btn');
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      if (lang === 'fr') {
+        btns[0].classList.add('active');
+      } else {
+        btns[1].classList.add('active');
+      }
+      var cards = document.querySelectorAll('.theme-card');
+      cards.forEach(function(card) {
+        var href = card.getAttribute('href');
+        if (lang === 'nl') {
+          card.setAttribute('href', href.replace('pdd-test.html', 'pdd-test-nl.html'));
+        } else {
+          card.setAttribute('href', href.replace('pdd-test-nl.html', 'pdd-test.html'));
+        }
+      });
+    }
 
     // Init
     startTimer();
