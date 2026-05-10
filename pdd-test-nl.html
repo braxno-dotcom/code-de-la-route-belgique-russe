@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F1E7;&#x1F1EA;</text></svg>">
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F1E7;&#x1F1EA;</text></svg>">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -202,6 +205,7 @@
     }
     #next-btn.ready { opacity: 1; pointer-events: auto; }
     #next-btn:hover { transform: translateX(0) scale(1.02); opacity: 0.9; }
+    #prev-btn.dim { opacity: 0.4; pointer-events: none; }
 
     /* Results screen */
     #results-screen { display: none; text-align: center; animation: fadeIn 0.5s ease; }
@@ -1476,12 +1480,17 @@ tagQuestions();
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let audioCtx;
 function getAudioCtx() {
-  if (!audioCtx) audioCtx = new AudioCtx();
+  if (!audioCtx) {
+    if (!AudioCtx) return null;
+    try { audioCtx = new AudioCtx(); } catch (e) { return null; }
+  }
   return audioCtx;
 }
 
 function playCorrectSound() {
+  try {
   const ctx = getAudioCtx();
+  if (!ctx) return;
   const now = ctx.currentTime;
   [523.25, 783.99].forEach((freq, i) => {
     const osc = ctx.createOscillator();
@@ -1495,10 +1504,13 @@ function playCorrectSound() {
     osc.start(now + i * 0.15);
     osc.stop(now + i * 0.15 + 0.5);
   });
+  } catch (e) { /* audio failure shouldn't break the quiz */ }
 }
 
 function playWrongSound() {
+  try {
   const ctx = getAudioCtx();
+  if (!ctx) return;
   const now = ctx.currentTime;
   const buf = ctx.createBuffer(1, ctx.sampleRate * 0.6, ctx.sampleRate);
   const data = buf.getChannelData(0);
@@ -1535,6 +1547,7 @@ function playWrongSound() {
   impactGain.connect(ctx.destination);
   impact.start(now + 0.35);
   impact.stop(now + 0.65);
+  } catch (e) { /* audio failure shouldn't break the quiz */ }
 }
 
 // --- State ---
@@ -1552,13 +1565,17 @@ function getMistakes() {
   try { return JSON.parse(localStorage.getItem("pdd_be_nl_mistakes") || "[]"); } catch { return []; }
 }
 function saveMistake(q) {
-  const m = getMistakes();
-  if (!m.find(x => x.q === q.q)) { m.push({ q: q.q, q_ru: q.q_ru, o: q.o, a: q.a, _cat: q._cat }); }
-  localStorage.setItem("pdd_be_nl_mistakes", JSON.stringify(m));
+  try {
+    const m = getMistakes();
+    if (!m.find(x => x.q === q.q)) { m.push({ q: q.q, q_ru: q.q_ru, o: q.o, a: q.a, _cat: q._cat }); }
+    localStorage.setItem("pdd_be_nl_mistakes", JSON.stringify(m));
+  } catch (e) { /* localStorage may fail in private mode */ }
 }
 function removeMistake(q) {
-  const m = getMistakes().filter(x => x.q !== q.q);
-  localStorage.setItem("pdd_be_nl_mistakes", JSON.stringify(m));
+  try {
+    const m = getMistakes().filter(x => x.q !== q.q);
+    localStorage.setItem("pdd_be_nl_mistakes", JSON.stringify(m));
+  } catch (e) { /* localStorage may fail in private mode */ }
 }
 function updateMistakesUI() {
   const m = getMistakes();
@@ -1628,8 +1645,9 @@ function showQuestion() {
   document.getElementById("hint-text").textContent = "";
   document.getElementById("options").innerHTML = "";
   document.getElementById("next-btn").classList.remove("ready");
-  document.getElementById("prev-btn").style.display = currentQ > 0 ? "block" : "none";
+  document.getElementById("prev-btn").classList.toggle("dim", currentQ === 0);
   updateProgress();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 
   const badge = document.getElementById("category-badge");
   const cat = categories[item._cat];
